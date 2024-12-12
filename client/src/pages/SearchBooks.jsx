@@ -12,7 +12,7 @@ import {
 import Auth from '../utils/auth';
 // import { saveBook  } from '../utils/API';
 import { useMutation } from '@apollo/client';
-import { SAVE_BOOK } from './mutations'; 
+import { SAVE_BOOK } from '../utils/mutations'; 
 
 import { searchGoogleBooks } from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
@@ -81,12 +81,14 @@ const SearchBooks = () => {
 
     try {
       // const response = await saveBook(bookToSave, token);
+      console.log(bookToSave)
+
       const { data } = await saveBook({
                 variables: { 
                   authors: bookToSave.authors,
                   description: bookToSave.description,
                   title: bookToSave.title,
-                  bookId: bookToSave.id,
+                  bookId: bookToSave.bookId,
                   image: bookToSave.image,
                   link: bookToSave.link
                 }

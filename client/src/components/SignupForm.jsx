@@ -49,7 +49,7 @@ const SignupForm = () => {
       // }
 
       // const { token, user } = await response.json();
-      const token = data.addUser.token
+      const token = data.createUser.token
 
 
       Auth.login(token);

@@ -22,7 +22,7 @@ import { removeBookId } from '../utils/localStorage';
 const SavedBooks = () => {
     const {loading, data} = useQuery(GET_ME);
 
-    const userData = data?.me || {}
+    const userData = data?.getSingleUser || {}
 
     const [deleteBook] = useMutation(REMOVE_BOOK);
 
@@ -92,7 +92,6 @@ const SavedBooks = () => {
   // if data isn't here yet, say so
   // if (!userDataLength) {
   //   return <h2>LOADING...</h2>;
-  }
    if (loading) {
     return <h2>LOADING...</h2>;
   }
